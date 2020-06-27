@@ -6,6 +6,7 @@ The AirBnB clone project starts now until… the end of the first year. The goal
 
 You won’t implement all the features, only some of them to cover all fundamental concepts of the higher level programming track.
 
+## First Step
 
 This is the first step towards building your first full web application: the AirBnB clone. This first step is very important because you will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end integration…
 

@@ -15,6 +15,7 @@ class BaseModel():
         Arguments:
             *args: won’t be used
             **kwargs: is not empty"""
+
         fd = "%Y-%m-%dT%H:%M:%S.%f"
         if kwargs:
             for k, v in kwargs.items():
@@ -41,6 +42,7 @@ class BaseModel():
 
     def save(self):
         """updates the public instance attribute"""
+
         self.updated_at = datetime.now()
 
     def to_dict(self):

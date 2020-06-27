@@ -37,21 +37,21 @@ class BaseModel():
         """Return a String that contains the class name, \
         the ID and dictionary
         """
-        str="[{}] ({}) {}"
-        return (str.format(BaseModel.__name__, self.id, self.__dict__))
+        str = "[{}] ({}) {}"
+        return (str.format(self.__class__.__name__, self.id, self.__dict__))
 
     def save(self):
         """updates the public instance attribute"""
 
-        models.storage.save()
         self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         """Returns a dictionary containing all \
         keys/values of __dict__ of the instance"""
 
-        dic = dict(self.__dict__)
-        dic['__class__'] = BaseModel.__name__
+        dic = self.__dict__.copy()
+        dic['__class__'] = self.__class__.__name__
         dic['created_at'] = self.created_at.isoformat()
         dic['updated_at'] = self.updated_at.isoformat()
 

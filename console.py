@@ -7,6 +7,7 @@ import models
 class HBNBCommand(cmd.Cmd):
     """entry point of the command interpreter"""
     prompt = "(hbnb) "
+    cls = {'BaseModel' : BaseModel}
 
     def do_quit(self, line):
         'Quit command to exit the program\n'
@@ -21,13 +22,13 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, line):
         'Creates a new instance of BaseModel\n'
-        cls ={'BaseModel': BaseModel}
+        # cls ={'BaseModel': BaseModel}
         arg = line.split() # ['create', 'BaseModel']
 
         if len(line) == 0:
             print("** class name missing **")
             return
-        elif arg[0] not in cls: # [arg[0] = 'BaseModel']
+        elif arg[0] not in self.cls: # [arg[0] = 'BaseModel']
             print("** class doesn't exist **")
             return
         else:
@@ -44,13 +45,12 @@ the class name and id'
         #r = self.base_model.to_dict()
         #print(r)
         #print('========================================================')
-        cls = {'BaseModel' : BaseModel}
         arg = line.split()
 
         if len(line) == 0: # show -> line[0], line[1], line[2]
             print("** class name missing **")
             return
-        elif arg[0] not in cls: # [show 'BaseModel']
+        elif arg[0] not in self.cls: # [show 'BaseModel']
             print("** class doesn't exist **")
             return
         elif len(arg) == 1: # show BaseModel
@@ -64,6 +64,21 @@ the class name and id'
                 else:
                     print("** no instance found **")
         return
+
+    def do_all(self, line):
+        """Prints all string representation of all instances based or \
+not on the class name"""
+        arg = line.split()
+        lis = []
+        # if len(line) == 0:
+        #    print("** class name missing **")
+        if arg[0] not in self.cls:
+            print("** class doesn't exist **")
+        else:
+            instance = models.storage.all()
+            for value in instance.values():
+                lis.append(value.__str__())
+            print(lis)
 
 
 if __name__ == '__main__':

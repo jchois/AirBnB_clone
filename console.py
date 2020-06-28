@@ -16,11 +16,11 @@ class HBNBCommand(cmd.Cmd):
         'Quit command to exit the program\n'
         return True
 
+    def emptyline(self):
+        pass
+
     def do_create(self, line):
         'Creates a new instance of BaseModel\n'
-        #self.base_model = BaseModel()
-        #r = self.base_model.to_dict()
-        #print(r)
         cls ={'BaseModel': BaseModel}
         arg = line.split() # ['create', 'BaseModel']
 
@@ -40,28 +40,29 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, line):
         'Prints the string representation of an instance based on \
 the class name and id'
-        self.base_model = BaseModel()
-        r = self.base_model.to_dict()
+        #self.base_model = BaseModel()
+        #r = self.base_model.to_dict()
+        #print(r)
+        #print('========================================================')
         cls = {'BaseModel' : BaseModel}
-        print(r)
         arg = line.split()
-        if len(line) == 0:
+
+        if len(line) == 0: # show -> line[0], line[1], line[2]
             print("** class name missing **")
             return
-        elif arg[0] not in cls:
+        elif arg[0] not in cls: # [show 'BaseModel']
             print("** class doesn't exist **")
             return
-        elif len(line) == 1:
+        elif len(arg) == 1: # show BaseModel
             print("** instance id missing **")
             return
         else:
-            try:
-                new_instance = models.storage.all()
+                new_instance = models.storage.all() # storage variable global
                 keyID = "{}.{}".format(arg[0], arg[1])
                 if keyID in new_instance:
                     print(new_instance[keyID])
-            except Exception:
-                print("** no instance found **")
+                else:
+                    print("** no instance found **")
         return
 
 

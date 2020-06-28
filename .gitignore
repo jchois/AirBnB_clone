@@ -1,0 +1,21 @@
+*#
+file.json
+console.py
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+models/__pycache__
+models/engine/__pycache__
+
+# C extensions
+*.so
+
+# pipenv
+#   Acc
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/

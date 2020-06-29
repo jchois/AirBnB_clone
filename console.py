@@ -29,7 +29,7 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, line):
         """Creates a new instance of BaseModel\n"""
 
-        arg = line.split()  # ['create', 'BaseModel']
+        arg = shlex.split(line)  # ['create', 'BaseModel']
         if len(line) == 0:
             print("** class name missing **")
             return
@@ -50,7 +50,7 @@ class HBNBCommand(cmd.Cmd):
         # print(r)
         # print('========================================================')
 
-        arg = line.split()
+        arg = shlex.split(line)
         if len(line) == 0:  # show -> line[0], line[1], line[2]
             print("** class name missing **")
             return
@@ -73,7 +73,7 @@ class HBNBCommand(cmd.Cmd):
         """Deletes an instance based on the class name and id \
         (save the change into the JSON file)"""
 
-        arg = line.split()
+        arg = shlex.split(line)
         if len(line) == 0:
             print("** class name missing **")
             return
@@ -111,14 +111,16 @@ not on the class name"""
             print(lis)
 
     def do_update(self, line):
+        """Update command interpreter"""
+
         arg = shlex.split(line)
-        if len(line) == 0:  # show -> line[0], line[1], line[2]
+        if len(line) == 0:
             print("** class name missing **")
             return
-        elif arg[0] not in self.cls:  # [show 'BaseModel']
+        elif arg[0] not in self.cls:
             print("** class doesn't exist **")
             return
-        elif len(arg) == 1:  # show BaseModel
+        elif len(arg) == 1:
             print("** instance id missing **")
             return
         elif len(arg) == 2:

@@ -1,8 +1,13 @@
 #!/usr/bin/python3
-"""Console"""
+"""
++=====+
+Console
++=====+
+"""
 import cmd
-from models.base_model import BaseModel
 import models
+from models.base_model import BaseModel
+
 
 class HBNBCommand(cmd.Cmd):
     """entry point of the command interpreter"""

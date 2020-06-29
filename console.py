@@ -6,6 +6,7 @@ Console
 """
 import cmd
 import models
+import shlex
 from models.base_model import BaseModel
 
 
@@ -27,8 +28,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, line):
         """Creates a new instance of BaseModel\n"""
-        arg = line.split()  # ['create', 'BaseModel']
 
+        arg = line.split()  # ['create', 'BaseModel']
         if len(line) == 0:
             print("** class name missing **")
             return
@@ -48,8 +49,8 @@ class HBNBCommand(cmd.Cmd):
         # r = self.base_model.to_dict()
         # print(r)
         # print('========================================================')
-        arg = line.split()
 
+        arg = line.split()
         if len(line) == 0:  # show -> line[0], line[1], line[2]
             print("** class name missing **")
             return
@@ -71,8 +72,8 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, line):
         """Deletes an instance based on the class name and id \
         (save the change into the JSON file)"""
-        arg = line.split()
 
+        arg = line.split()
         if len(line) == 0:
             print("** class name missing **")
             return
@@ -85,18 +86,19 @@ class HBNBCommand(cmd.Cmd):
         else:
             to_del = models.storage.all()
             keyID = "{}.{}".format(arg[0], arg[1])
-            for k, v in to_del.items():
-                if keyID in to_del:
-                    del to_del[keyID]
-                    models.storage.save()
-                else:
-                    print("** no instance found **")
-                return
+            #for k, v in to_del.items():
+            if keyID in to_del:
+                del to_del[keyID]
+                models.storage.save()
+            else:
+                print("** no instance found **")
+            return
 
     def do_all(self, line):
         """Prints all string representation of all instances based or \
 not on the class name"""
-        arg = line.split()
+
+        arg = shlex.split(line)
         lis = []
         # if len(line) == 0:
         #    print("** class name missing **")
@@ -107,6 +109,39 @@ not on the class name"""
             for value in instance.values():
                 lis.append(value.__str__())
             print(lis)
+
+    def do_update(self, line):
+        arg = shlex.split(line)
+        if len(line) == 0:  # show -> line[0], line[1], line[2]
+            print("** class name missing **")
+            return
+        elif arg[0] not in self.cls:  # [show 'BaseModel']
+            print("** class doesn't exist **")
+            return
+        elif len(arg) == 1:  # show BaseModel
+            print("** instance id missing **")
+            return
+        elif len(arg) == 2:
+            print("** attribute name missing **")
+            return
+        elif len(arg) == 3:
+            print("** value missing **")
+            return
+        else:
+            instance = models.storage.all()
+            keyID = "{}.{}".format(arg[0], arg[1])  # BaseModel and ID
+            if keyID in instance:
+                for value in instance.values():  # return Values
+                    try:
+                        tp = type(getattr(value, arg[2]))
+                        arg[3] = tp(arg[3])
+                    except AttributeError:
+                        pass
+                    setattr(value, arg[2], arg[3])
+                    models.storage.save()
+            else:
+                print("** no instance found **")
+            return
 
 
 if __name__ == '__main__':

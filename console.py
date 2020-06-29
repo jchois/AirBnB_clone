@@ -13,21 +13,21 @@ from models.base_model import BaseModel
 class HBNBCommand(cmd.Cmd):
     """entry point of the command interpreter"""
     prompt = "(hbnb) "
-    cls = {'BaseModel' : BaseModel}
+    cls = {'BaseModel': BaseModel}
 
     def do_quit(self, line):
-        'Quit command to exit the program\n'
+        """Quit command to exit the program\n"""
         return True
 
     def do_EOF(self, line):
-        'Quit command to exit the program\n'
+        """Quit command to exit the program\n"""
         return True
 
     def emptyline(self):
         pass
 
     def do_create(self, line):
-        'Creates a new instance of BaseModel\n'
+        """Creates a new instance of BaseModel\n"""
         arg = line.split()  # ['create', 'BaseModel']
 
         if len(line) == 0:
@@ -43,8 +43,8 @@ class HBNBCommand(cmd.Cmd):
             return
 
     def do_show(self, line):
-        '''Prints the string representation of an instance based on \
-        the class name and id'''
+        """Prints the string representation of an instance based on \
+        the class name and id"""
         # self.base_model = BaseModel()
         # r = self.base_model.to_dict()
         # print(r)

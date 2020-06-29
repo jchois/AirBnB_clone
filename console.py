@@ -96,7 +96,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, line):
         """Prints all string representation of all instances based or \
-not on the class name"""
+        not on the class name"""
         arg = line.split()
         lis = []
         # if len(line) == 0:
@@ -110,7 +110,7 @@ not on the class name"""
             print(lis)
 
     def do_update(self, line):
-        """comments"""
+        """Update command interpreter"""
         arg = shlex.split(line)
 
         if len(line) == 0:

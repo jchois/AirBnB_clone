@@ -6,6 +6,7 @@ Console
 """
 import cmd
 import models
+import shlex
 from models.base_model import BaseModel
 
 
@@ -107,6 +108,41 @@ not on the class name"""
             for value in instance.values():
                 lis.append(value.__str__())
             print(lis)
+
+    def do_update(self, line):
+        """comments"""
+        arg = shlex.split(line)
+
+        if len(line) == 0:
+            print("** class name missing **")
+            return
+        elif arg[0] not in self.cls:
+            print("** class doesn't exist **")
+            return
+        elif len(arg) == 1:
+            print("** instance id missing **")
+            return
+        elif len(arg) == 2:
+            print("** attribute name missing **")
+            return
+        elif len(arg) == 3:
+            print("** value missing **")
+            return
+        else:
+            instance = models.storage.all()
+            keyID = "{}.{}".format(arg[0], arg[1])  # BaseModel and ID
+            if keyID in instance:
+                for value in instance.values():  # return Values
+                    try:
+                        tp = type(getattr(value, arg[2]))
+                        arg[3] = tp(arg[3])
+                    except AttributeError:
+                        pass
+                    setattr(value, arg[2], arg[3])
+                    models.storage.save()
+            else:
+                print("** no instance found **")
+            return
 
 
 if __name__ == '__main__':

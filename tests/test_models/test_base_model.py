@@ -85,10 +85,6 @@ class TestBaseModel(unittest.TestCase):
         self.b1.name = "Juliana"
         self.assertIn('name', self.b1.to_dict())
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 25cb87d82619bf9f92c358659abd4f46988558f1
     def test_docstrings(self):
         """docsting of each function"""
 
@@ -104,8 +100,4 @@ class TestBaseModel(unittest.TestCase):
 
 
 if __name__ == '__main__':
-<<<<<<< HEAD
     unittest.main()
-=======
-    unittest.main()
->>>>>>> 25cb87d82619bf9f92c358659abd4f46988558f1

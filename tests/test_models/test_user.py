@@ -7,18 +7,10 @@ from models.user import User
 class TestUser(unittest.TestCase):
     """class"""
 
-    def test_email_user(self):
-        """Test email user"""
-        self.assertEqual(type(User.email), str)
-
-    def test_pass_user(self):
-        """Test password user"""
-        self.assertEqual(type(User.password), str)
-
-    def test_first_name(self):
-        """Test first_name"""
-        self.assertEqual(type(User.first_name), str)
-
-    def test_last_name(self):
-        """Test first_name"""
-        self.assertEqual(type(User.last_name), str)
+    def test_type_users(self):
+        """Test the type"""
+        u = User()
+        self.assertEqual(type(u.email), str)
+        self.assertEqual(type(u.password), str)
+        self.assertEqual(type(u.first_name), str)
+        self.assertEqual(type(u.last_name), str)

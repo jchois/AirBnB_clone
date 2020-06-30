@@ -25,3 +25,7 @@ This is the first step towards building your first full web application: the Air
 - Juliana Chois - [Github](https://github.com/julianachois) , [Twitter](https://twitter.com/julianachois)
 
 See also the list of [contributors](https://github.com/jchois/AirBnB_clone/graphs/contributors) who participated in this project.
+
+## :triangular_flag_on_post: Acknowledgments
+
+- Holberton School, we would like to thank the staff and our peers for helping us in this great experience.

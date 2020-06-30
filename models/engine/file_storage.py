@@ -21,13 +21,6 @@ class FileStorage():
 
     __file_path = 'file.json'
     __objects = {}
-    cls = {'BaseModel': BaseModel,
-           'User': User,
-           'Place': Place,
-           'State': State,
-           'City': City,
-           'Amenity': Amenity,
-           'Review': Review}
 
     def all(self):
         """Returns the dictionary"""
@@ -52,12 +45,18 @@ class FileStorage():
 
     def reload(self):
         """deserializes the JSON file to __objects"""
-
+        cls = {'BaseModel': BaseModel,
+           'User': User,
+           'Place': Place,
+           'State': State,
+           'City': City,
+           'Amenity': Amenity,
+           'Review': Review}
         try:
             with open(self.__file_path, 'r') as f:
                 # dic = json.load(f)
                 for key, value in json.load(f).items():
-                    if value['__class__'] in cls:
+                    if value['__class__'] in self.cls:
                         tmp = eval(value['__class__'])(**value)
                     self.__objects[key] = tmp
         except Exception:

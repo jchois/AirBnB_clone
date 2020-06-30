@@ -18,3 +18,10 @@ This is the first step towards building your first full web application: the Air
 
 
 ![Error](img/console.png)
+
+## :black_nib: Authors
+
+- Adrian De La Asunción - [Github](https://github.com/AdrianDel07) , [Twitter](https://twitter.com/AdrianDeLaAsun1)
+- Juliana Chois - [Github](https://github.com/julianachois) , [Twitter](https://twitter.com/julianachois)
+
+See also the list of [contributors](https://github.com/jchois/AirBnB_clone/graphs/contributors) who participated in this project.

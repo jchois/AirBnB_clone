@@ -20,10 +20,12 @@ class HBNBCommand(cmd.Cmd):
     """entry point of the command interpreter"""
     prompt = "(hbnb) "
     cls = {'BaseModel': BaseModel,
+           'User': User,
            'Place': Place,
            'State': State,
            'City': City,
-           'Amenity': Amenity}
+           'Amenity': Amenity,
+           'Review': Review}
 
     def do_quit(self, line):
         """Quit command to exit the program\n"""
@@ -92,7 +94,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             to_del = models.storage.all()
             keyID = "{}.{}".format(arg[0], arg[1])
-            #for k, v in to_del.items():
+            # for k, v in to_del.items():
             if keyID in to_del:
                 del to_del[keyID]
                 models.storage.save()

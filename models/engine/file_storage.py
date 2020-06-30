@@ -25,7 +25,8 @@ class FileStorage():
            'Place': Place,
            'State': State,
            'City': City,
-           'Amenity': Amenity}
+           'Amenity': Amenity,
+           'Review': Review}
 
     def all(self):
         """Returns the dictionary"""

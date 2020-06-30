@@ -1,7 +1,6 @@
 *#
 file.json
 console.py
-test_base_model.py
 test_save_reload_user.py
 
 # Byte-compiled / optimized / DLL files

@@ -14,6 +14,7 @@ from models.place import Place
 from models.state import State
 from models.city import City
 from models.amenity import Amenity
+from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
@@ -106,15 +107,21 @@ class HBNBCommand(cmd.Cmd):
         """Prints all string representation of all instances based or \
 not on the class name"""
 
-        arg = line.split()
+        arg = shlex.split(line)
+        instance = models.storage.all()
         lis = []
-        if line not in self.cls:
+        if len(line) == 0:
+            for value in instance.values():
+                lis.append(value.__str__())
+            print(lis)
+            return
+        if arg[0] not in self.cls:
             print("** class doesn't exist **")
             return
         else:
-            instance = models.storage.all()
             for value in instance.values():
-                lis.append(value.__str__())
+                if arg[0] == value.__class__.__name__:
+                    lis.append(value.__str__())
             print(lis)
             return
 

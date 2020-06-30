@@ -1,6 +1,10 @@
 *#
 file.json
+<<<<<<< HEAD
 test_base_model.py
+=======
+console.py
+>>>>>>> bb5b440e79e43bafd2e52c468b8762701cc6da9b
 test_save_reload_user.py
 
 # Byte-compiled / optimized / DLL files

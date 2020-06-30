@@ -56,7 +56,7 @@ class FileStorage():
             with open(self.__file_path, 'r') as f:
                 # dic = json.load(f)
                 for key, value in json.load(f).items():
-                    if value['__class__'] in self.cls:
+                    if value['__class__'] in cls:
                         tmp = eval(value['__class__'])(**value)
                     self.__objects[key] = tmp
         except Exception:

@@ -3,7 +3,7 @@
 import unittest
 import os
 from models.base_model import BaseModel
-import datetime
+from datetime import datetime
 
 
 class TestBaseModel(unittest.TestCase):
@@ -84,3 +84,21 @@ class TestBaseModel(unittest.TestCase):
         self.assertIn("name", self.b1.to_dict())
         self.b1.name = "Juliana"
         self.assertIn('name', self.b1.to_dict())
+
+
+    def test_docstrings(self):
+        """docsting of each function"""
+
+        self.assertTrue(BaseModel.__init__.__doc__)
+        self.assertTrue(hasattr(BaseModel, '__init__'))
+        self.assertTrue(BaseModel.__init__.__doc__)
+        self.assertTrue(hasattr(BaseModel, '__str__'))
+        self.assertTrue(BaseModel.__str__.__doc__)
+        self.assertTrue(hasattr(BaseModel, 'save'))
+        self.assertTrue(BaseModel.save.__doc__)
+        self.assertTrue(hasattr(BaseModel, 'to_dict'))
+        self.assertTrue(BaseModel.to_dict.__doc__)
+
+
+if __name__ == '__main__':
+    unittest.main()

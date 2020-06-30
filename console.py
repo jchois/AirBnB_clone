@@ -7,14 +7,23 @@ Console
 import cmd
 import models
 import shlex
+# class
 from models.base_model import BaseModel
 from models.user import User
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
 
 
 class HBNBCommand(cmd.Cmd):
     """entry point of the command interpreter"""
     prompt = "(hbnb) "
-    cls = {'BaseModel': BaseModel}
+    cls = {'BaseModel': BaseModel,
+           'Place': Place,
+           'State': State,
+           'City': City,
+           'Amenity': Amenity}
 
     def do_quit(self, line):
         """Quit command to exit the program\n"""
@@ -99,11 +108,13 @@ not on the class name"""
         lis = []
         if line not in self.cls:
             print("** class doesn't exist **")
+            return
         else:
             instance = models.storage.all()
             for value in instance.values():
                 lis.append(value.__str__())
             print(lis)
+            return
 
     def do_update(self, line):
         """Update command interpreter"""

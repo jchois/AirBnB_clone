@@ -4,6 +4,12 @@
 from models.base_model import BaseModel
 import json
 from models.user import User
+from models.base_model import BaseModel
+from models.user import User
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
 
 
 class FileStorage():
@@ -14,6 +20,12 @@ class FileStorage():
 
     __file_path = 'file.json'
     __objects = {}
+    cls = {'BaseModel': BaseModel,
+           'User': User,
+           'Place': Place,
+           'State': State,
+           'City': City,
+           'Amenity': Amenity}
 
     def all(self):
         """Returns the dictionary"""
@@ -43,7 +55,8 @@ class FileStorage():
             with open(self.__file_path, 'r') as f:
                 # dic = json.load(f)
                 for key, value in json.load(f).items():
-                    tmp = eval(value['__class__'])(**value)
+                    if value['__class__'] in cls:
+                        tmp = eval(value['__class__'])(**value)
                     self.__objects[key] = tmp
         except Exception:
             pass

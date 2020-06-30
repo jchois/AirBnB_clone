@@ -1,14 +1,15 @@
 #!/usr/bin/python3
-"""User Class"""
+"""user module"""
 from models.base_model import BaseModel
 
 
 class User(BaseModel):
-    """[Public class attributes]
+    """ class that inherits from BaseModel
 
     Args:
         BaseModel
     """
+
     email = ""
     password = ""
     first_name = ""

@@ -94,7 +94,7 @@ class HBNBCommand(cmd.Cmd):
         """Prints all string representation of all instances based or \
 not on the class name"""
 
-        #arg = shlex.split(line)
+        arg = line.split()
         lis = []
         if line not in self.cls:
             print("** class doesn't exist **")

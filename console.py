@@ -7,13 +7,26 @@ Console
 import cmd
 import models
 import shlex
+# class
 from models.base_model import BaseModel
+from models.user import User
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
     """entry point of the command interpreter"""
     prompt = "(hbnb) "
-    cls = {'BaseModel': BaseModel}
+    cls = {'BaseModel': BaseModel,
+           'User': User,
+           'Place': Place,
+           'State': State,
+           'City': City,
+           'Amenity': Amenity,
+           'Review': Review}
 
     def do_quit(self, line):
         """Quit command to exit the program\n"""
@@ -82,7 +95,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             to_del = models.storage.all()
             keyID = "{}.{}".format(arg[0], arg[1])
-            #for k, v in to_del.items():
+            # for k, v in to_del.items():
             if keyID in to_del:
                 del to_del[keyID]
                 models.storage.save()
@@ -94,15 +107,23 @@ class HBNBCommand(cmd.Cmd):
         """Prints all string representation of all instances based or \
 not on the class name"""
 
-        #arg = shlex.split(line)
+        arg = shlex.split(line)
+        instance = models.storage.all()
         lis = []
-        if line not in self.cls:
-            print("** class doesn't exist **")
-        else:
-            instance = models.storage.all()
+        if len(line) == 0:
             for value in instance.values():
                 lis.append(value.__str__())
             print(lis)
+            return
+        if arg[0] not in self.cls:
+            print("** class doesn't exist **")
+            return
+        else:
+            for value in instance.values():
+                if arg[0] == value.__class__.__name__:
+                    lis.append(value.__str__())
+            print(lis)
+            return
 
     def do_update(self, line):
         """Update command interpreter"""

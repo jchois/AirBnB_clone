@@ -1,6 +1,6 @@
 # AirBnB_clone
 
-![Error](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20200626%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200626T142131Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=30ba1b800879bb551bdb097719d709a8e9e763cb3810fe671af5fb902f3c6b96)
+![logo](img/hbnb.png)
 
 The AirBnB clone project starts now until… the end of the first year. The goal of the project is to deploy on your server a simple copy of the AirBnB website.
 

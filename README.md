@@ -2,15 +2,31 @@
 
 ![logo](img/hbnb.png)
 
+## :page_with_curl: Description
+
 The AirBnB clone project starts now until… the end of the first year. The goal of the project is to deploy on your server a simple copy of the AirBnB website.
 
 You won’t implement all the features, only some of them to cover all fundamental concepts of the higher level programming track.
 
-## The console :computer:
+## :computer: The console
 
 - create your data model
 - manage (create, update, destroy, etc) objects via a console / command interpreter
 - store and persist objects to a file (JSON file)
+
+## :warning: Requirements
+
+- Allowed editors: ```vi```, ```vim```, ```emacs```
+- All your files will be interpreted/compiled on Ubuntu 14.04 LTS using ```python3``` (version 3.4.3)
+- All your files should end with a new line
+- The first line of all your files should be exactly ```#!/usr/bin/python3```
+- A ```README.md``` file, at the root of the folder of the project, is mandatory
+- Your code should use the ```PEP 8``` style (version 1.7 or more)
+- All your files must be executable
+- The length of your files will be tested using ```wc```
+- All your modules should have a documentation (```python3 -c 'print(__import__("my_module").__doc__)'```)
+- All your classes should have a documentation (```python3 -c 'print(__import__("my_module").MyClass.__doc__)'```)
+- All your functions (inside and outside a class) should have a documentation (```python3 -c 'print(__import__("my_module").my_function.__doc__)'``` - and ```python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'```)
 
 ## First Step
 

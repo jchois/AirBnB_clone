@@ -8,6 +8,8 @@ test_save_reload_user.py
 __pycache__/
 models/__pycache__
 models/engine/__pycache__
+tests/test_models/__pycache__
+tests/test_models/test_engine/test_file_engine.py
 
 # C extensions
 *.so

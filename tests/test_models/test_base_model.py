@@ -3,6 +3,7 @@
 import unittest
 import os
 from models.base_model import BaseModel
+import datetime
 
 
 class TestBaseModel(unittest.TestCase):
@@ -49,3 +50,37 @@ class TestBaseModel(unittest.TestCase):
         self.b1.name = "Julianita"
         self.assertTrue(self.b1.name, "Julianita")
         self.assertTrue(self.b2.name, "Adrian")
+
+    def test_kwarg_creation(self):
+        """Tests when passing attribute value"""
+
+        b3 = BaseModel(id="1234")
+        self.assertEqual(b3.id, "1234")
+
+    def test_file_save(self):
+        """Test that info is saved to file"""
+        b3 = BaseModel()
+        b3.save()
+        with open("file.json", 'r') as f:
+            self.assertIn(b3.id, f.read())
+
+    def test_create_at(self):
+        """check created_at is of the datetime"""
+        self.assertEqual(datetime, type(BaseModel().created_at))
+        self.assertEqual(datetime, type(self.b1.created_at))
+        self.assertEqual(datetime, type(self.b2.created_at))
+
+    def test_update_at(self):
+        """check update_at is of the datetime"""
+        self.assertEqual(datetime, type(BaseModel().updated_at))
+        self.assertEqual(datetime, type(self.b1.updated_at))
+        self.assertEqual(datetime, type(self.b2.updated_at))
+
+    def test_to_dict_contens(self):
+        """check to_dict"""
+        self.assertIn("created_at", self.b1.to_dict())
+        self.assertIn("updated_at", self.b1.to_dict())
+        self.assertIn("__class__", self.b1.to_dict())
+        self.assertIn("name", self.b1.to_dict())
+        self.b1.name = "Juliana"
+        self.assertIn('name', self.b1.to_dict())

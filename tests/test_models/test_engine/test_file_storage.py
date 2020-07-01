@@ -38,6 +38,7 @@ class TestFileStorage(unittest.TestCase):
         self.s1 = State()
         self.u1 = User()
         self.storage = FileStorage()
+        self.storage.save()
         if os.path.exists("file.json"):
             pass
         else:
@@ -57,6 +58,13 @@ class TestFileStorage(unittest.TestCase):
         if os.path.exists("file.json"):
             os.remove("file.json")
 
+    def test_all(self):
+        """Check the all"""
+        obj = self.storage.all()
+        self.assertIsNotNone(obj)
+        self.assertEqual(type(obj), dict)
+        self.assertIs(obj, self.storage._FileStorage__objects)
+
     def test_storage_empty(self):
         """check the storage is not empty"""
 
@@ -68,7 +76,7 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(dict, type(self.storage.all()))
 
     def test_new(self):
-        """"""
+        """check the new user"""
         obj = self.storage.all()
         self.u1.id = 1234
         self.u1.name = "Julien"

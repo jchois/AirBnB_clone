@@ -4,6 +4,7 @@ import unittest
 import os
 from models.base_model import BaseModel
 from datetime import datetime
+import pep8
 
 
 class TestBaseModel(unittest.TestCase):
@@ -15,6 +16,13 @@ class TestBaseModel(unittest.TestCase):
     def test_docstring_module(self):
         """Documentation"""
         self.assertGreater(len(BaseModel.__doc__), 1)
+
+    def test_pep8_FileStorage(self):
+        """Tests pep8 style"""
+
+        style = pep8.StyleGuide(quiet=True)
+        p = style.check_files(['models/base_model.py'])
+        self.assertEqual(p.total_errors, 0, "fix pep8")
 
     def test_create(self):
         """test the creation of a BaseModel"""

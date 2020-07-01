@@ -2,10 +2,17 @@
 """Test User class"""
 import unittest
 from models.user import User
+import pep8
 
 
 class TestUser(unittest.TestCase):
     """class"""
+
+    def test_pep8_FileStorage(self):
+        """Tests pep8 style"""
+        style = pep8.StyleGuide(quiet=True)
+        p = style.check_files(['models/user.py'])
+        self.assertEqual(p.total_errors, 0, "fix pep8")
 
     def test_type_users(self):
         """Test the type"""

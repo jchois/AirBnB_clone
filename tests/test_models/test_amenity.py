@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""TestCases Amenity module"""
 import unittest
 import os
 import pep8
@@ -6,8 +7,8 @@ from models.amenity import Amenity
 from datetime import datetime
 
 
-class TestAmenity(unittest.TestCase):
-    """"""
+class TestCasesAmenity(unittest.TestCase):
+    """TestAmenity class module"""
 
     a1 = Amenity()
     a2 = Amenity()

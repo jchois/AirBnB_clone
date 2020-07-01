@@ -84,6 +84,22 @@ class TestFileStorage(unittest.TestCase):
         key = "{}.{}".format(self.u1.__class__.__name__, self.u1.id)
         self.assertIsNotNone(obj[key])
 
+    def test_check_json_loading(self):
+        """ Checks if methods from Storage Engine works."""
+
+        with open("file.json") as f:
+            dic = json.load(f)
+
+            self.assertEqual(isinstance(dic, dict), True)
+
+    def test_file_existence(self):
+        """
+        Checks if methods from Storage Engine works.
+        """
+
+        with open("file.json") as f:
+            self.assertTrue(len(f.read()) > 0)
+
     def test_docstrings(self):
         """Check the docString each function"""
 

@@ -14,3 +14,13 @@ class TestUser(unittest.TestCase):
         self.assertEqual(type(u.password), str)
         self.assertEqual(type(u.first_name), str)
         self.assertEqual(type(u.last_name), str)
+
+    def test_instance(self):
+        """Test instance"""
+        u = User()
+        self.assertIsInstance(u, User)
+
+    def test_docstring(self):
+        """Test documentation"""
+        u = User.__doc__
+        self.assertGreater(len(u), 1)

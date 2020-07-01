@@ -46,12 +46,12 @@ class FileStorage():
     def reload(self):
         """deserializes the JSON file to __objects"""
         cls = {'BaseModel': BaseModel,
-           'User': User,
-           'Place': Place,
-           'State': State,
-           'City': City,
-           'Amenity': Amenity,
-           'Review': Review}
+               'User': User,
+               'Place': Place,
+               'State': State,
+               'City': City,
+               'Amenity': Amenity,
+               'Review': Review}
         try:
             with open(self.__file_path, 'r') as f:
                 # dic = json.load(f)

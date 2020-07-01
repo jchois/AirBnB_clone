@@ -3,6 +3,8 @@
 import unittest
 import os
 import contextlib
+import json
+import models
 import pep8
 
 # class
@@ -17,22 +19,41 @@ from models.user import User
 
 
 class TestFileStorage(unittest.TestCase):
-    """"""
+    """Test FileStorage"""
 
-    b1 = BaseModel()
-    a1 = Amenity()
-    c1 = City()
-    p1 = Place()
-    r1 = Review()
-    s1 = State()
-    u1 = User()
-    storage = FileStorage()
+    def test_pep8_FileStorage(self):
+        """Tests pep8 style"""
+        style = pep8.StyleGuide(quiet=True)
+        p = style.check_files(['models/engine/file_storage.py'])
+        self.assertEqual(p.total_errors, 0, "fix pep8")
 
-    def test_del_file(self):
-        """Check the file.json and delete de objects"""
+    def setUp(self):
+        """Sets up the class test"""
 
+        self.b1 = BaseModel()
+        self.a1 = Amenity()
+        self.c1 = City()
+        self.p1 = Place()
+        self.r1 = Review()
+        self.s1 = State()
+        self.u1 = User()
+        self.storage = FileStorage()
+        if os.path.exists("file.json"):
+            pass
+        else:
+            os.mknod("file.json")
 
-       # del self.storage
+    def tearDown(self):
+        """Tears down the testing environment"""
+
+        del self.b1
+        del self.a1
+        del self.c1
+        del self.p1
+        del self.r1
+        del self.s1
+        del self.u1
+        del self.storage
         if os.path.exists("file.json"):
             os.remove("file.json")
 
@@ -45,6 +66,15 @@ class TestFileStorage(unittest.TestCase):
         """check the type of storage"""
 
         self.assertEqual(dict, type(self.storage.all()))
+
+    def test_new(self):
+        """"""
+        obj = self.storage.all()
+        self.u1.id = 1234
+        self.u1.name = "Julien"
+        self.storage.new(self.u1)
+        key = "{}.{}".format(self.u1.__class__.__name__, self.u1.id)
+        self.assertIsNotNone(obj[key])
 
     def test_docstrings(self):
         """Check the docString each function"""

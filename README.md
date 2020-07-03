@@ -28,9 +28,53 @@ You won’t implement all the features, only some of them to cover all fundament
 - All your classes should have a documentation (```python3 -c 'print(__import__("my_module").MyClass.__doc__)'```)
 - All your functions (inside and outside a class) should have a documentation (```python3 -c 'print(__import__("my_module").my_function.__doc__)'``` - and ```python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'```)
 
-## First Step
+## :boom: Execution
+
+Your shell should work like this in interactive mode:
+
+```
+$ ./console.py
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+
+(hbnb) 
+(hbnb) 
+(hbnb) quit
+$
+```
+
+But also in non-interactive mode: (like the Shell project in C)
+
+```
+$ echo "help" | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb) 
+$
+$ cat test_help
+help
+$
+$ cat test_help | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb) 
+$
+```
+
+## :round_pushpin: First Step
 
 This is the first step towards building your first full web application: the AirBnB clone. This first step is very important because you will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end integration…
+
+![Error](img/console.png)
 
 ## :file_folder: Files and Directories
 
@@ -42,7 +86,6 @@ This is the first step towards building your first full web application: the Air
 - methods: ```save()``` and ```to_json()```
 - ```models/engine``` directory will contain all storage classes (using the same prototype). For the moment you will have only one: ```file_storage.py```.
 
-![Error](img/console.png)
 
 ## :black_nib: Authors
 

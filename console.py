@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
-+=====+
-Console
-+=====+
++==================+
+ The Console AirBnB
++==================+
 """
 import cmd
 import models
@@ -159,6 +159,97 @@ not on the class name"""
             else:
                 print("** no instance found **")
             return
+
+    def do_BaseModel(self, line):
+        """All instance by class Name"""
+
+        instance = models.storage.all()
+        ps = line.split('.')[1].split('(')[0]
+        if '(' and ')' in line:
+            if ps == "count":
+                count = 0
+                for key in instance.keys():
+                    if key.split('.')[0] in "BaseModel":
+                        count += 1
+                print(count)
+
+    def do_User(self, line):
+        """All instance by class Name"""
+
+        instance = models.storage.all()
+        ps = line.split('.')[1].split('(')[0]
+        if '(' and ')' in line:
+            if ps == "count":
+                count = 0
+                for key in instance.keys():
+                    if key.split('.')[0] == "User":
+                        count += 1
+                print(count)
+
+    def do_State(self, line):
+        """All instance by class Name"""
+
+        instance = models.storage.all()
+        ps = line.split('.')[1].split('(')[0]
+        if '(' and ')' in line:
+            if ps == "count":
+                count = 0
+                for key in instance.keys():
+                    if key.split('.')[0] == "State":
+                        count += 1
+                print(count)
+
+    def do_City(self, line):
+        """All instance by class Name"""
+
+        instance = models.storage.all()
+        ps = line.split('.')[1].split('(')[0]
+        if '(' and ')' in line:
+            if ps == "count":
+                count = 0
+                for key in instance.keys():
+                    if key.split('.')[0] == "City":
+                        count += 1
+                print(count)
+
+    def do_Amenity(self, line):
+        """All instance by class Name"""
+
+        instance = models.storage.all()
+        ps = line.split('.')[1].split('(')[0]
+        if '(' and ')' in line:
+            if ps == "count":
+                count = 0
+                for key in instance.keys():
+                    if key.split('.')[0] == "Amenity":
+                        count += 1
+                print(count)
+
+    def do_Place(self, line):
+        """All instance by class Name"""
+
+        instance = models.storage.all()
+        ps = line.split('.')[1].split('(')[0]
+        if '(' and ')' in line:
+            if ps == "count":
+                count = 0
+                for key in instance.keys():
+                    if key.split('.')[0] == "Place":
+                        count += 1
+                print(count)
+
+    def do_Review(self, line):
+        """All instance by class Name"""
+
+        instance = models.storage.all()
+        ps = line.split('.')[1].split('(')[0]
+        if '(' and ')' in line:
+            if ps == "count":
+                count = 0
+                for key in instance.keys():
+                    if key.split('.')[0] == "Review":
+                        count += 1
+                print(count)
 
 
 if __name__ == '__main__':

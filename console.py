@@ -169,7 +169,7 @@ not on the class name"""
             if ps == "count":
                 count = 0
                 for key in instance:
-                    if key.split('.')[0] in "BaseModel":
+                    if key.split('.')[0] == "BaseModel":
                         count += 1
                 print(count)
 

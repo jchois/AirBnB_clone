@@ -168,7 +168,7 @@ not on the class name"""
         if '(' and ')' in line:
             if ps == "count":
                 count = 0
-                for key in instance.keys():
+                for key in instance:
                     if key.split('.')[0] in "BaseModel":
                         count += 1
                 print(count)
@@ -181,7 +181,7 @@ not on the class name"""
         if '(' and ')' in line:
             if ps == "count":
                 count = 0
-                for key in instance.keys():
+                for key in instance:
                     if key.split('.')[0] == "User":
                         count += 1
                 print(count)

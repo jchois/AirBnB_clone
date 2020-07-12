@@ -1,0 +1,96 @@
+/* CSS for class filters in the task 6 */
+* ul, li{
+	list-style-type: none;
+}
+
+.filters{
+	background-color: #fff;
+	height: 70px;
+	width: 100%;
+	border: 1px solid #DDDDDD;
+	border-radius: 4px;
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* CSS for button all the section */
+
+/* NOTE
+The width attr is still the same 20%, but as it's 
+now inside another div it has to be 40% with respect to that object*/
+section.filters button{
+	font-size: 18px;
+	border: none;
+	background-color: #FF5A5F;
+	color: #fff;
+	height: 48px;
+	width: 40%;
+	margin: 0 30px 0 0;
+	cursor: pointer;
+}
+
+section.filters button:hover{
+	opacity: 90%;
+}
+
+.div-button{
+	width: 100%;
+	text-align: right;
+}
+
+/* CSS for location and Amenities (loc-ame) */
+
+/* NOTE
+The percentage with the width is the same case I mention above*/
+.locations, .amenities{
+	height: 100%;
+	width: 50%;
+	padding: 0 0 0 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.locations>h3 , .amenities>h3{
+	font-weight: 600;
+	margin: 0;
+}
+
+.locations>h4 , .amenities>h4{
+	font-weight: 400;
+	font-size: 14px;
+	margin: 0;
+}
+
+.locations{
+	border-right: 1px solid #DDDDDD;
+}
+
+.locations:hover>.popover, .amenities:hover>.popover{
+	display: block;
+	cursor: pointer;
+}
+
+.locations > .popover{
+	padding: 10px 0 30px 40px;
+}
+.amenities > .popover{
+	padding: 40px 0px 40px 40px;
+}
+
+.popover{
+	display: none;
+	background-color: #FAFAFA;
+	border: #DDDDDD 1px solid;
+	position: absolute;
+	top: 159px;
+	margin-left: -30px;
+	width: 223px;
+	border-radius: 4px;
+}
+
+.popover > li > h2{
+	font-size: 16px;
+}

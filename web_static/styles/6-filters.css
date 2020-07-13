@@ -43,7 +43,7 @@ section.filters button:hover{
 
 /* NOTE
 The percentage with the width is the same case I mention above*/
-.locations, .amenities{
+.filters>.locations, .filters>.amenities{
 	height: 100%;
 	width: 50%;
 	padding: 0 0 0 30px;
@@ -53,22 +53,22 @@ The percentage with the width is the same case I mention above*/
 	cursor: pointer;
 }
 
-.locations>h3 , .amenities>h3{
+.filters>.locations>h3 , .filters>.amenities>h3{
 	font-weight: 600;
 	margin: 0;
 }
 
-.locations>h4 , .amenities>h4{
+.filters>.locations>h4 , .filters>.amenities>h4{
 	font-weight: 400;
 	font-size: 14px;
 	margin: 0;
 }
 
-.locations{
+.filters>.locations{
 	border-right: 1px solid #DDDDDD;
 }
 
-.locations:hover>.popover, .amenities:hover>.popover{
+.filters>.locations:hover>.popover, .filters>.amenities:hover>.popover{
 	display: block;
 	cursor: pointer;
 }

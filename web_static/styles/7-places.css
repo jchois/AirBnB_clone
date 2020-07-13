@@ -8,7 +8,8 @@
 
 .places > h1 {
     font-size: 30px;
-    margin-bottom: 0px;
+	margin-bottom: 0px;
+	margin-left: 20px;
     flex: 0 1 100%;
 }
 

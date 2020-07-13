@@ -13,7 +13,8 @@
 .places > h1 {
     font-size: 30px;
     margin-bottom: 0px;
-    flex: 0 1 100%;
+	margin-left: 20px;
+	flex: 0 1 100%;
 }
 
 .places > article{
@@ -49,6 +50,7 @@
 	font-size: 30px;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	margin: 0 0 10px 0;
 }
 
